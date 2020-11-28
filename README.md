@@ -20,6 +20,20 @@ dotnet pack
 dotnet new -i .bin/Debug/AconCavy.CompetitiveProgramming.Templates.1.0.0.nupkg
 ```
 
+You can use `install.bat` or `install.sh` for the installing.
+
+### Windows
+
+```
+./install.bat
+```
+
+### Mac OS or Linux
+
+```
+./install.sh
+```
+
 ## Create Project
 
 After installing, you can create a project to use a `dotnet new cpproj` command.
@@ -173,6 +187,31 @@ dotnet test
 
 ## Uninstall
 
+You can uninstall the templates from your environment.
+
 ```sh
 dotnet new -u AconCavy.CompetitiveProgramming.Templates
+```
+
+Also, you can use `uninstall.bat` or `uninstall.sh` for the installing.
+
+### Windows
+
+```
+./uninstall.bat
+```
+
+### Mac OS or Linux
+
+```
+./uninstall.sh
+```
+
+###
+
+If you cannot execute the shell files by permission, you should grant execution permission for the files using the `chmod` command.
+
+```
+chmod 700 ./install.sh
+chmod 700 ./uninstall.sh
 ```
