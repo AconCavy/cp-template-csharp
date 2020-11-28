@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0</PackageVersion>
+    <PackageId>AconCavy.CompetitiveProgramming.Templates</PackageId>
+    <Title>Competitive Programming Templates</Title>
+    <Authors>AconCavy</Authors>
+    <Description>Templates to use when creating an application for competitive programings.</Description>
+    <PackageTags>dotnet-new;templates;competitive-programming</PackageTags>
+    <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.1;netstandard2.0</TargetFrameworks>
+    <PackageProjectUrl>https://github.com/AconCavy/CompetitiveProgrammingCSharp</PackageProjectUrl>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="content/**/*" Exclude="content/**/bin/**;content/**/obj/**" />
+    <Compile Remove="**/*" />
+  </ItemGroup>
+
+</Project>
