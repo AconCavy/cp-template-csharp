@@ -9,7 +9,7 @@
     <Description>Templates to use when creating an application for competitive programings.</Description>
     <PackageTags>dotnet-new;templates;competitive-programming</PackageTags>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <PackageProjectUrl>https://github.com/AconCavy/CompetitiveProgrammingCSharp</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AconCavy/CompetitiveProgrammingTemplateCSharp</PackageProjectUrl>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
