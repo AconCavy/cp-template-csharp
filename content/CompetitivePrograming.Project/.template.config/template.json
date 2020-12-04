@@ -60,7 +60,7 @@
     },
     "primaryOutputs": [
         {
-            "path": "Tasks.csproj"
+            "path": "Tasks/Tasks.csproj"
         }
     ],
     "defaultName": "Project",
