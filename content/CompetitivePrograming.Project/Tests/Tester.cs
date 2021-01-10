@@ -44,13 +44,19 @@ namespace Tests
             using var actualReader = new StringReader(builder.ToString());
             while (true)
             {
-                var expected = expectedReader.ReadLine();
-                var actual = actualReader.ReadLine();
-                if (actual == null && expected == null) return;
-                if (double.TryParse(expected, out var expectedValue)
-                && double.TryParse(actual, out var actualValue))
-                    Assert.AreEqual(expectedValue, actualValue, delta);
-                else Assert.AreEqual(expected, actual);
+                var expectedLine = expectedReader.ReadLine();
+                var actualLine = actualReader.ReadLine();
+                if (actualLine == null && expectedLine == null) return;
+                var expected = expectedLine.Split(" ");
+                var actual = actualLine.Split(" ");
+                Assert.AreEqual(expected.Length, actual.Length);
+                for (var i = 0; i < expected.Length; i++)
+                {
+                    if (double.TryParse(expected[i], out var expectedValue)
+                    && double.TryParse(actual[i], out var actualValue))
+                        Assert.AreEqual(expectedValue, actualValue, delta);
+                    else Assert.AreEqual(expected[i], actual[i]);
+                }
             }
         }
     }
