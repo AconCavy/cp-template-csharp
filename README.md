@@ -1,8 +1,8 @@
 # Overview
 
-The repository is the dotnet custam templates for competitive programming.
+The template is the dotnet custom templates for competitive programming.
 
-The templates includs
+The templates include
 
 - Project
 - Solver class
@@ -64,7 +64,7 @@ Or, you can specify another target framework using a `--target-framework-overrid
 ## Create Solver class
 
 After creating the project, you should create a solver class in the `Tasks` project.
-You can create the solver class to use a `dotnet new cpsolver` command and should place it under `Tasks`.
+You can create the solver class to use a `dotnet new cpsolver` command and place it under `Tasks`.
 
 ```sh
 dotnet new cpsolver -n TaskA -o ./Tasks
@@ -107,7 +107,7 @@ namespace Tasks
 
 You can check the behavior of the solver class to use the `MSTest` test class.
 
-You can create the solver class to use a `dotnet new cptests` command and should place it under `Tests`.
+You can create the solver class to use a `dotnet new cptests` command and place it under `Tests`.
 
 ```sh
 dotnet new cptests -n TaskA -o ./Tests
@@ -140,7 +140,7 @@ namespace Tests
 }
 ```
 
-And, you can specify the relative error using the `RelativeError` field by add to the argument in the `Tester.InOutTest` method.
+You can also specify the relative error using the `RelativeError` field by adding to the argument in the `Tester.InOutTest` method.
 
 ```csharp
 [TestMethod, Timeout(TimeLimit)]
