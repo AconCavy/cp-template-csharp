@@ -18,7 +18,7 @@ namespace Tests
 
             solve();
 
-            using var expectedReader = new StringReader(output.ToString());
+            using var expectedReader = new StringReader(output);
             using var actualReader = new StringReader(builder.ToString());
             while (true)
             {
@@ -40,20 +40,20 @@ namespace Tests
 
             solve();
 
-            using var expectedReader = new StringReader(output.ToString());
+            using var expectedReader = new StringReader(output);
             using var actualReader = new StringReader(builder.ToString());
             while (true)
             {
                 var expectedLine = expectedReader.ReadLine();
                 var actualLine = actualReader.ReadLine();
                 if (actualLine == null && expectedLine == null) return;
-                var expected = expectedLine.Split(" ");
-                var actual = actualLine.Split(" ");
+                var expected = expectedLine?.Split(" ") ?? Array.Empty<string>();
+                var actual = actualLine?.Split(" ") ?? Array.Empty<string>();
                 Assert.AreEqual(expected.Length, actual.Length);
                 for (var i = 0; i < expected.Length; i++)
                 {
                     if (double.TryParse(expected[i], out var expectedValue)
-                    && double.TryParse(actual[i], out var actualValue))
+                        && double.TryParse(actual[i], out var actualValue))
                         Assert.AreEqual(expectedValue, actualValue, delta);
                     else Assert.AreEqual(expected[i], actual[i]);
                 }
