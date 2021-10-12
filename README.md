@@ -17,7 +17,7 @@ You can clone the repository then install the templates using a `dotnet` command
 
 ```sh
 dotnet pack
-dotnet new -i .bin/Debug/AconCavy.CompetitiveProgramming.Templates.1.0.0.nupkg
+dotnet new -i .bin/Debug/AconCavy.CompetitiveProgramming.Templates.1.1.0.nupkg
 ```
 
 You can use `install.bat` or `install.sh` for the installing.
