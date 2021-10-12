@@ -20,12 +20,12 @@ dotnet pack
 dotnet new -i .bin/Debug/AconCavy.CompetitiveProgramming.Templates.1.1.0.nupkg
 ```
 
-You can use `install.bat` or `install.sh` for the installing.
+You can use `install.cmd` or `install.sh` for the installing.
 
 ### Windows
 
 ```
-./install.bat
+./install.cmd
 ```
 
 ### Mac OS or Linux
@@ -193,12 +193,12 @@ You can uninstall the templates from your environment.
 dotnet new -u AconCavy.CompetitiveProgramming.Templates
 ```
 
-Also, you can use `uninstall.bat` or `uninstall.sh` for the installing.
+Also, you can use `uninstall.cmd` or `uninstall.sh` for the installing.
 
 ### Windows
 
 ```
-./uninstall.bat
+./uninstall.cmd
 ```
 
 ### Mac OS or Linux
