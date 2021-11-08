@@ -13,25 +13,10 @@ The templates include
 ## Install
 
 You should install the templates.
-You can clone the repository then install the templates using a `dotnet` command.
+You can download the `nupkg` from [Releases](https://github.com/AconCavy/CompetitiveProgrammingTemplateCSharp/releases), then install the templates using a `dotnet new` command.
 
 ```sh
-dotnet pack
-dotnet new -i .bin/Debug/AconCavy.CompetitiveProgramming.Templates.1.1.0.nupkg
-```
-
-You can use `install.cmd` or `install.sh` for the installing.
-
-### Windows
-
-```
-./install.cmd
-```
-
-### Mac OS or Linux
-
-```
-./install.sh
+dotnet new -i {/path/to/}AconCavy.CompetitiveProgramming.Templates.{version}.nupkg
 ```
 
 ## Create Project
@@ -191,27 +176,4 @@ You can uninstall the templates from your environment.
 
 ```sh
 dotnet new -u AconCavy.CompetitiveProgramming.Templates
-```
-
-Also, you can use `uninstall.cmd` or `uninstall.sh` for the installing.
-
-### Windows
-
-```
-./uninstall.cmd
-```
-
-### Mac OS or Linux
-
-```
-./uninstall.sh
-```
-
-###
-
-If you cannot execute the shell files by permission, you should grant execution permission for the files using the `chmod` command.
-
-```
-chmod 700 ./install.sh
-chmod 700 ./uninstall.sh
 ```
