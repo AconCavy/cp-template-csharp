@@ -16,10 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET 3.1
+    - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: 6.0.x
     - name: Test
       run: dotnet test -c Release --verbosity normal
   
@@ -30,10 +30,10 @@ jobs:
     steps:
     
     - uses: actions/checkout@v2
-    - name: Setup .NET 3.1
+    - name: Setup .NET 6.0
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: 6.0.x
 
     - name: Create Release
       run: Import-Module ./release.ps1 && Publish-Release -Tag $env:GITHUB_REF.Split("/")[-1]
