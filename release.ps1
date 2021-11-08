@@ -13,7 +13,7 @@ function Publish-Release {
   Get-ChildItem -Path $Path |
   ForEach-Object {
     $Target = $_.Name
-    $Assets += "./$Target"
+    $Assets += "./$Path/$Target"
   }
 
   gh release create $Tag $Assets $PreRelease
