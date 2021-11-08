@@ -4,7 +4,7 @@ function Publish-Release {
     [PSDefaultValue(Help = "./publish")] [string] $Path = "./publish"
   )
 
-  $PreRelease = $Tag -like 'v*-*-*' ? '-p' : ""
+  $PreRelease = $Tag -like 'v*-*' ? '-p' : ""
   $Version = $Tag.Substring(1)
 
   dotnet pack ./CompetitiveProgrammingTemplate.csproj --configuration Release --output $Path -p:PackageVersion=$Version
