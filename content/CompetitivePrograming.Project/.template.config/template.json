@@ -1,80 +1,80 @@
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "AconCavy",
-    "classifications": [
-        "CompetitivePrograming",
-        "C#",
-        "Console"
-    ],
-    "name": "Competitive Programing Project",
-    "generatorVersions": "[1.0.0.0-*)",
-    "description": "A project for creating a competitive programming project.",
-    "groupIdentity": "AconCavy.CompetitivePrograming.Project",
-    "identity": "AconCavy.CompetitivePrograming.Project",
-    "shortName": "cpproj",
-    "tags": {
-        "language": "C#",
-        "type": "project"
+  "$schema": "http://json.schemastore.org/template",
+  "author": "AconCavy",
+  "classifications": [
+    "CompetitivePrograming",
+    "C#",
+    "Console"
+  ],
+  "name": "Competitive Programing Project",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "A project for creating a competitive programming project.",
+  "groupIdentity": "AconCavy.CompetitivePrograming.Project",
+  "identity": "AconCavy.CompetitivePrograming.Project",
+  "shortName": "cpproj",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CompetitivePrograming.Project",
+  "preferNameDirectory": true,
+  "symbols": {
+    "TargetFrameworkOverride": {
+      "type": "parameter",
+      "description": "Overrides the target framework",
+      "replaces": "TargetFrameworkOverride",
+      "datatype": "string",
+      "defaultValue": ""
     },
-    "sourceName": "CompetitivePrograming.Project",
-    "preferNameDirectory": true,
-    "symbols": {
-        "TargetFrameworkOverride": {
-            "type": "parameter",
-            "description": "Overrides the target framework",
-            "replaces": "TargetFrameworkOverride",
-            "datatype": "string",
-            "defaultValue": ""
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net6.0",
+          "description": "Target net6.0"
         },
-        "Framework": {
-            "type": "parameter",
-            "description": "The target framework for the project.",
-            "datatype": "choice",
-            "choices": [
-                {
-                    "choice": "net5.0",
-                    "description": "Target net5.0"
-                },
-                {
-                    "choice": "netcoreapp3.1",
-                    "description": "Target netcoreapp3.1"
-                },
-                {
-                    "choice": "netstandard2.1",
-                    "description": "Target netstandard2.1"
-                },
-                {
-                    "choice": "netstandard2.0",
-                    "description": "Target netstandard2.0"
-                }
-            ],
-            "replaces": "netcoreapp3.1",
-            "defaultValue": "netcoreapp3.1"
+        {
+          "choice": "netcoreapp3.1",
+          "description": "Target netcoreapp3.1"
         },
-        "skipRestore": {
-            "type": "parameter",
-            "datatype": "bool",
-            "description": "If specified, skips the automatic restore of the project on create.",
-            "defaultValue": "false"
+        {
+          "choice": "netstandard2.1",
+          "description": "Target netstandard2.1"
+        },
+        {
+          "choice": "netstandard2.0",
+          "description": "Target netstandard2.0"
         }
+      ],
+      "replaces": "netcoreapp3.1",
+      "defaultValue": "netcoreapp3.1"
     },
-    "primaryOutputs": [
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": "Tasks/Tasks.csproj"
+    }
+  ],
+  "defaultName": "Project",
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
         {
-            "path": "Tasks/Tasks.csproj"
+          "text": "Run 'dotnet restore'"
         }
-    ],
-    "defaultName": "Project",
-    "postActions": [
-        {
-            "condition": "(!skipRestore)",
-            "description": "Restore NuGet packages required by this project.",
-            "manualInstructions": [
-                {
-                    "text": "Run 'dotnet restore'"
-                }
-            ],
-            "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-            "continueOnError": true
-        }
-    ]
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
 }

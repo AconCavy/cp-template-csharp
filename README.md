@@ -35,13 +35,13 @@ The default target framework is a `netcoreapp3.1`.
 
 The target frameworks can be specified
 
-- net5.0
+- net6.0
 - netcoreapp3.1
 - netstandard2.1
 - netstandard2.0
 
 ```sh
-dotnet new cpproj -n Sample -f net5.0
+dotnet new cpproj -n Sample -f net6.0
 ```
 
 Or, you can specify another target framework using a `--target-framework-override` option.

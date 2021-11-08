@@ -1,21 +1,21 @@
 {
-    "$schema": "http://json.schemastore.org/template",
-    "author": "AconCavy",
-    "classifications": [
-        "CompetitivePrograming",
-        "C#",
-        "Code"
-    ],
-    "name": "Competitive Programing Solver Class",
-    "generatorVersions": "[1.0.0.0-*)",
-    "description": "A project for creating a competitive programming solver class",
-    "groupIdentity": "AconCavy.CompetitivePrograming.Solver",
-    "identity": "AconCavy.CompetitivePrograming.Solver",
-    "shortName": "cpsolver",
-    "tags": {
-        "language": "C#",
-        "type": "item"
-    },
-    "sourceName": "CompetitivePrograming.Solver",
-    "defaultName": "Solver"
+  "$schema": "http://json.schemastore.org/template",
+  "author": "AconCavy",
+  "classifications": [
+    "CompetitivePrograming",
+    "C#",
+    "Code"
+  ],
+  "name": "Competitive Programing Solver Class",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "A project for creating a competitive programming solver class",
+  "groupIdentity": "AconCavy.CompetitivePrograming.Solver",
+  "identity": "AconCavy.CompetitivePrograming.Solver",
+  "shortName": "cpsolver",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "sourceName": "CompetitivePrograming.Solver",
+  "defaultName": "Solver"
 }
