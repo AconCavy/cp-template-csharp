@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
 {
-    public static class Tester
+    public static class Utility
     {
         public static void InOutTest(Action solve, string input, string output)
         {
