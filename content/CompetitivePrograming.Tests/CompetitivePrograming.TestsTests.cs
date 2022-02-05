@@ -13,7 +13,7 @@ namespace Tests
         {
             const string input = @"";
             const string output = @"";
-            Tester.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
+            Utility.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
         }
 
         [TestMethod, Timeout(TimeLimit)]
@@ -21,7 +21,7 @@ namespace Tests
         {
             const string input = @"";
             const string output = @"";
-            Tester.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
+            Utility.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
         }
 
         [TestMethod, Timeout(TimeLimit)]
@@ -29,7 +29,7 @@ namespace Tests
         {
             const string input = @"";
             const string output = @"";
-            Tester.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
+            Utility.InOutTest(Tasks.CompetitivePrograming.Tests.Solve, input, output);
         }
     }
 }
