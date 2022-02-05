@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,55 +10,28 @@ namespace Tests
     {
         public static void InOutTest(Action solve, string input, string output)
         {
-            using var inputReader = new StringReader(input);
-            Console.SetIn(inputReader);
-
+            using var reader = new StringReader(input);
+            Console.SetIn(reader);
             var builder = new StringBuilder();
-            using var stringWriter = new StringWriter(builder);
-            Console.SetOut(stringWriter);
-
+            using var writer = new StringWriter(builder);
+            Console.SetOut(writer);
             solve();
-
-            using var expectedReader = new StringReader(output);
-            using var actualReader = new StringReader(builder.ToString());
-            while (true)
-            {
-                var expected = expectedReader.ReadLine();
-                var actual = actualReader.ReadLine();
-                if (actual == null && expected == null) return;
-                Assert.AreEqual(expected, actual);
-            }
+            Assert.AreEqual(output, builder.ToString());
         }
 
-        public static void InOutTest(Action solve, string input, string output, double delta)
+        public static void InOutTest(Action solve, string input, string output, double relativeError)
         {
-            using var inputReader = new StringReader(input);
-            Console.SetIn(inputReader);
-
+            using var reader = new StringReader(input);
+            Console.SetIn(reader);
             var builder = new StringBuilder();
-            using var stringWriter = new StringWriter(builder);
-            Console.SetOut(stringWriter);
-
+            using var writer = new StringWriter(builder);
+            Console.SetOut(writer);
             solve();
-
-            using var expectedReader = new StringReader(output);
-            using var actualReader = new StringReader(builder.ToString());
-            while (true)
-            {
-                var expectedLine = expectedReader.ReadLine();
-                var actualLine = actualReader.ReadLine();
-                if (actualLine == null && expectedLine == null) return;
-                var expected = expectedLine?.Split(" ") ?? Array.Empty<string>();
-                var actual = actualLine?.Split(" ") ?? Array.Empty<string>();
-                Assert.AreEqual(expected.Length, actual.Length);
-                for (var i = 0; i < expected.Length; i++)
-                {
-                    if (double.TryParse(expected[i], out var expectedValue)
-                        && double.TryParse(actual[i], out var actualValue))
-                        Assert.AreEqual(expectedValue, actualValue, delta);
-                    else Assert.AreEqual(expected[i], actual[i]);
-                }
-            }
+            foreach (var (expectedLine, actualLine) in output.Split('\n').Zip(builder.ToString().Split('\n')))
+                foreach (var (expected, actual) in expectedLine.Split(' ').Zip(actualLine.Split(' ')))
+                    if (double.TryParse(expected, out var expectedValue) && double.TryParse(actual, out var actualValue))
+                        Assert.AreEqual(expectedValue, actualValue, relativeError);
+                    else Assert.AreEqual(expected, actual);
         }
     }
 }
