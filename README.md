@@ -119,7 +119,7 @@ namespace Tests
         {
             const string input = @"Foo"; // input
             const string output = @"FooBar"; // expected output 
-            Tester.InOutTest(Tasks.TaskA.Solve, input, output);
+            Utility.InOutTest(Tasks.TaskA.Solve, input, output);
         }
     }
 }
@@ -133,7 +133,7 @@ public void Test2()
 {
     const string input = @"1";
     const string output = @"0.125000000";
-    Tester.InOutTest(Tasks.TaskA.Solveinput, output, RelativeError); // add argument
+    Utility.InOutTest(Tasks.TaskA.Solveinput, output, RelativeError); // add argument
 }
 ```
 
