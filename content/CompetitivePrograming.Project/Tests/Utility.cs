@@ -16,7 +16,9 @@ namespace Tests
             using var writer = new StringWriter(builder);
             Console.SetOut(writer);
             solve();
-            Assert.AreEqual(output, builder.ToString());
+            var expected = output.Replace("\r", "").Trim();
+            var actual = builder.ToString().Replace("\r", "").Trim();
+            Assert.AreEqual(expected, actual);
         }
 
         public static void InOutTest(Action solve, string input, string output, double relativeError)
@@ -27,7 +29,9 @@ namespace Tests
             using var writer = new StringWriter(builder);
             Console.SetOut(writer);
             solve();
-            foreach (var (expectedLine, actualLine) in output.Split('\n').Zip(builder.ToString().Split('\n')))
+            var expectedSource = output.Replace("\r", "").Trim();
+            var actualSource = builder.ToString().Replace("\r", "").Trim();
+            foreach (var (expectedLine, actualLine) in expectedSource.Split('\n').Zip(actualSource.Split('\n')))
                 foreach (var (expected, actual) in expectedLine.Split(' ').Zip(actualLine.Split(' ')))
                     if (double.TryParse(expected, out var expectedValue) && double.TryParse(actual, out var actualValue))
                         Assert.AreEqual(expectedValue, actualValue, relativeError);
