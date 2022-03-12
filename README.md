@@ -1,18 +1,17 @@
 # Overview
 
-The template is the dotnet custom templates for competitive programming.
+The template is the dotnet custom template for competitive programming.
 
-The templates include
+The template includes
 
 - Project
 - Solver class
-- Test class
 
 # How To Use
 
 ## Install
 
-You should install the templates.
+You can install the template by dotnet cli.
 You can download the `nupkg` from [Releases](https://github.com/AconCavy/CompetitiveProgrammingTemplateCSharp/releases), then install the templates using a `dotnet new` command.
 
 ```sh
@@ -21,10 +20,8 @@ dotnet new -i {/path/to/}AconCavy.CompetitiveProgramming.Templates.{version}.nup
 
 ## Create Project
 
-After installing, you can create a project to use a `dotnet new cpproj` command.
+After installing, you can create a project using a `dotnet new cpproj` command.
 And, you can specify the project name using a `-n|--name` option.
-
-Then, the base project that includes a `Tasks` and a `Tests` project is created.
 
 ```sh
 dotnet new cpproj -n Sample
@@ -35,28 +32,23 @@ The default target framework is a `netcoreapp3.1`.
 
 The target frameworks can be specified
 
-- net6.0
 - netcoreapp3.1
-- netstandard2.1
-- netstandard2.0
+- net6.0
 
 ```sh
 dotnet new cpproj -n Sample -f net6.0
 ```
 
-Or, you can specify another target framework using a `--target-framework-override` option.
-
 ## Create Solver class
 
-After creating the project, you should create a solver class in the `Tasks` project.
-You can create the solver class to use a `dotnet new cpsolver` command and place it under `Tasks`.
+After creating the project, you can create a solver class in the project.
+You can create the solver class using a `dotnet new cpsolver` command in the project.
 
 ```sh
-dotnet new cpsolver -n TaskA -o ./Tasks
+dotnet new cpsolver -n TaskA
 ```
 
-After that, you can check the created class named `TaskA` like the following.
-Then, you can implement a `Solve` method for tasks.
+Then, the class named `TaskA` will be created.
 
 ```csharp
 using System;
@@ -70,7 +62,7 @@ namespace Tasks
 {
     public class TaskA
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
@@ -80,7 +72,7 @@ namespace Tasks
 
         public static void Solve()
         {
-            // implement here !
+            // implement here!
             // var x = Console.ReadLine();
             // Console.WriteLine(x);
         }
@@ -90,56 +82,43 @@ namespace Tasks
 
 ## Create Tests class
 
-You can check the behavior of the solver class to use the `MSTest` test class.
-
-You can create the solver class to use a `dotnet new cptests` command and place it under `Tests`.
-
-```sh
-dotnet new cptests -n TaskA -o ./Tests
-```
-
-Then, you can create test cases for the solver class.
-You should fill in `input` and `output`.
-
-As options, you can edit the `TimeLimit` field that can specify the execution time limit.
+You can check the behavior of the solver class using `NUnit` test class.
 
 ```csharp
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tests
 {
-    [TestClass]
-    public class TaskATests
+    public class Tests
     {
-        const int TimeLimit = 2000;
-        const double RelativeError = 1e-9;
-
-        [TestMethod, Timeout(TimeLimit)]
-        public void Test1()
+        [Timeout(2000)]
+        [TestCase(
+            @"", // input
+            @"")] // output
+        public void SolverTest(string input, string output)
         {
-            const string input = @"Foo"; // input
-            const string output = @"FooBar"; // expected output 
-            Utility.InOutTest(Tasks.TaskA.Solve, input, output);
+            Utility.InOutTest(Tasks.Solver, input, output);
         }
     }
 }
 ```
 
-You can also specify the relative error using the `RelativeError` field by adding to the argument in the `Tester.InOutTest` method.
+You can also specify a relative error in the argument of the `Utility.InOutTest` method.
 
 ```csharp
-[TestMethod, Timeout(TimeLimit)]
-public void Test2()
+[Timeout(2000)]
+[TestCase(
+    @"1", // input
+    @"0.125000000")] // output
+public void SolverTest(string input, string output)
 {
-    const string input = @"1";
-    const string output = @"0.125000000";
-    Utility.InOutTest(Tasks.TaskA.Solveinput, output, RelativeError); // add argument
+    Utility.InOutTest(Tasks.Solver, input, output, 1e9); // relative error
 }
 ```
 
 ## Execution of the project
 
-If you created multiple solver classes, you should change the `StartupObject` property in the `Tasks.csproj` to execute the specific task.
+If you created multiple solver classes, you should change the `StartupObject` property in the `{Project}.csproj` to execute the specific task.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -148,10 +127,8 @@ If you created multiple solver classes, you should change the `StartupObject` pr
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
-    <!-- change here -->
+    <!-- update here -->
     <StartupObject>Tasks.TaskA</StartupObject>
-    <!-- <StartupObject>Tasks.TaskB</StartupObject> -->
-    <!-- ... -->
 
   </PropertyGroup>
 
@@ -164,7 +141,7 @@ Then, you can execute the solver class.
 dotnet run -p ./Tasks
 ```
 
-Or, you can execute the tests.
+And, you can execute the tests.
 
 ```sh
 dotnet test
@@ -172,7 +149,7 @@ dotnet test
 
 ## Uninstall
 
-You can uninstall the templates from your environment.
+You can uninstall the template.
 
 ```sh
 dotnet new -u AconCavy.CompetitiveProgramming.Templates

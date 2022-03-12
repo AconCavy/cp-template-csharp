@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Tests
 {
@@ -18,7 +18,7 @@ namespace Tests
             solve();
             var expected = output.Replace("\r", "").Trim();
             var actual = builder.ToString().Replace("\r", "").Trim();
-            Assert.AreEqual(expected, actual);
+            Assert.That(actual, Is.EqualTo(expected));
         }
 
         public static void InOutTest(Action solve, string input, string output, double relativeError)
@@ -34,8 +34,8 @@ namespace Tests
             foreach (var (expectedLine, actualLine) in expectedSource.Split('\n').Zip(actualSource.Split('\n')))
                 foreach (var (expected, actual) in expectedLine.Split(' ').Zip(actualLine.Split(' ')))
                     if (double.TryParse(expected, out var expectedValue) && double.TryParse(actual, out var actualValue))
-                        Assert.AreEqual(expectedValue, actualValue, relativeError);
-                    else Assert.AreEqual(expected, actual);
+                        Assert.That(expectedValue, Is.EqualTo(actualValue).Within(relativeError));
+                    else Assert.That(actual, Is.EqualTo(expected));
         }
     }
 }

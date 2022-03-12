@@ -7,9 +7,9 @@ using System.Numerics;
 
 namespace Tasks
 {
-    public class CompetitivePrograming.Solver
+    public class CP.Solver
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);

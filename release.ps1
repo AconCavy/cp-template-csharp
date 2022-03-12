@@ -7,7 +7,7 @@ function Publish-Release {
   $PreRelease = $Tag -like 'v*-*' ? '-p' : ""
   $Version = $Tag.Substring(1)
 
-  dotnet pack ./CompetitiveProgrammingTemplate.csproj --configuration Release --output $Path -p:PackageVersion=$Version
+  dotnet pack ./CPTemplate.csproj --configuration Release --output $Path -p:PackageVersion=$Version
   
   $Assets = @()
   Get-ChildItem -Path $Path |
