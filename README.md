@@ -12,7 +12,7 @@ The template includes
 ## Install
 
 You can install the template by dotnet cli.
-You can download the `nupkg` from [Releases](https://github.com/AconCavy/CompetitiveProgrammingTemplateCSharp/releases), then install the templates using a `dotnet new` command.
+You can download the `nupkg` from [Releases](https://github.com/AconCavy/cp-template-csharp/releases), then install the templates using a `dotnet new` command.
 
 ```sh
 dotnet new -i {/path/to/}AconCavy.CompetitiveProgramming.Templates.{version}.nupkg

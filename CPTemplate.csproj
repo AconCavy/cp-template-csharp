@@ -8,7 +8,7 @@
     <Description>Templates to use when creating an application for competitive programings.</Description>
     <PackageTags>dotnet-new;templates;competitive-programming</PackageTags>
     <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
-    <PackageProjectUrl>https://github.com/AconCavy/CompetitiveProgrammingTemplateCSharp</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/AconCavy/cp-template-csharp</PackageProjectUrl>
 
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
