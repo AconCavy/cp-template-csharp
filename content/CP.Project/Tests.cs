@@ -16,7 +16,7 @@ namespace Tests
             @"")]
         public void SolverTest(string input, string output)
         {
-            Utility.InOutTest(Tasks.Solver.Solve, input, output, 1e9);
+            Utility.InOutTest(Tasks.Solver.Solve, input, output, 1e-9);
         }
     }
 }
