@@ -112,7 +112,7 @@ You can also specify a relative error in the argument of the `Utility.InOutTest`
     @"0.125000000")] // output
 public void SolverTest(string input, string output)
 {
-    Utility.InOutTest(Tasks.Solver, input, output, 1e9); // relative error
+    Utility.InOutTest(Tasks.Solver, input, output, -1e9); // relative error
 }
 ```
 
