@@ -23,6 +23,6 @@ jobs:
           6.0
 
     - name: Create Release
-      run: Import-Module ./release.ps1 && Publish-Release -Tag $env:GITHUB_REF.Split("/")[-1]
+      run: Import-Module ./scripts/release.ps1 && Publish-Release -Tag $env:GITHUB_REF.Split("/")[-1]
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
