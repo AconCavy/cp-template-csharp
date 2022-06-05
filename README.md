@@ -97,7 +97,7 @@ namespace Tests
             @"")] // output
         public void SolverTest(string input, string output)
         {
-            Utility.InOutTest(Tasks.Solver, input, output);
+            Utility.InOutTest(Tasks.Solver.Solve, input, output);
         }
     }
 }
@@ -110,9 +110,9 @@ You can also specify a relative error in the argument of the `Utility.InOutTest`
 [TestCase(
     @"1", // input
     @"0.125000000")] // output
-public void SolverTest(string input, string output)
+public void TaskATest(string input, string output)
 {
-    Utility.InOutTest(Tasks.Solver, input, output, 1e-9); // relative error
+    Utility.InOutTest(Tasks.TaskA.Solve, input, output, 1e-9); // relative error
 }
 ```
 
@@ -135,15 +135,10 @@ If you created multiple solver classes, you should change the `StartupObject` pr
 </Project>
 ```
 
-Then, you can execute the solver class.
+Then, you can execute the solver class or tests.
 
 ```sh
-dotnet run -p ./Tasks
-```
-
-And, you can execute the tests.
-
-```sh
+dotnet run
 dotnet test
 ```
 
