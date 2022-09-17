@@ -64,7 +64,7 @@ namespace Tasks
     {
         public static void Main()
         {
-            var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
+            using var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
             Solve();
             Console.Out.Flush();
