@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework Condition="'$(TargetFrameworkOverride)' == ''">netcoreapp3.1</TargetFramework>
+    <TargetFramework Condition="'$(TargetFrameworkOverride)' == ''">net7</TargetFramework>
     <TargetFramework Condition="'$(TargetFrameworkOverride)' != ''">TargetFrameworkOverride</TargetFramework>
     <RootNamespace Condition="'$(name)' != '$(name{-VALUE-FORMS-}safe_namespace)'">CompetitivePrograming.Project</RootNamespace>
 
