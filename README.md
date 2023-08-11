@@ -28,12 +28,13 @@ dotnet new cpproj -n Sample
 ```
 
 And, you can specify a target framework using a `-f|--framework` option.
-The default target framework is a `netcoreapp3.1`.
+The default target framework is a `net7`.
 
 The target frameworks can be specified
 
+- net7
+- net6
 - netcoreapp3.1
-- net6.0
 
 ```sh
 dotnet new cpproj -n Sample -f net6.0
@@ -58,24 +59,23 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 
-namespace Tasks
-{
-    public class TaskA
-    {
-        public static void Main()
-        {
-            using var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
-            Console.SetOut(sw);
-            Solve();
-            Console.Out.Flush();
-        }
+namespace Tasks;
 
-        public static void Solve()
-        {
-            // implement here!
-            // var x = Console.ReadLine();
-            // Console.WriteLine(x);
-        }
+public class TaskA
+{
+    public static void Main()
+    {
+        using var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
+        Console.SetOut(sw);
+        Solve();
+        Console.Out.Flush();
+    }
+
+    public static void Solve()
+    {
+        // implement here!
+        // var x = Console.ReadLine();
+        // Console.WriteLine(x);
     }
 }
 ```
@@ -87,18 +87,18 @@ You can check the behavior of the solver class using `NUnit` test class.
 ```csharp
 using NUnit.Framework;
 
-namespace Tests
+namespace Tests;
+
+public class Tests
 {
-    public class Tests
+    [Timeout(2000)]
+    [TestCase(
+        @"", // input
+        @"", // output
+        TestName = "{m}-1")]
+    public void SolverTest(string input, string output)
     {
-        [Timeout(2000)]
-        [TestCase(
-            @"", // input
-            @"")] // output
-        public void SolverTest(string input, string output)
-        {
-            Utility.InOutTest(Tasks.Solver.Solve, input, output);
-        }
+        Utility.InOutTest(Tasks.Solver.Solve, input, output);
     }
 }
 ```
@@ -109,7 +109,8 @@ You can also specify a relative error in the argument of the `Utility.InOutTest`
 [Timeout(2000)]
 [TestCase(
     @"1", // input
-    @"0.125000000")] // output
+    @"0.125000000", // output
+    TestName = "{m}-1")]
 public void TaskATest(string input, string output)
 {
     Utility.InOutTest(Tasks.TaskA.Solve, input, output, 1e-9); // relative error
@@ -125,7 +126,9 @@ If you created multiple solver classes, you should change the `StartupObject` pr
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net7</TargetFramework>
+
+    <!--...-->
 
     <!-- update here -->
     <StartupObject>Tasks.TaskA</StartupObject>
