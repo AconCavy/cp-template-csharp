@@ -5,20 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 
-namespace Tasks
-{
-    public class CP.Solver
-    {
-        public static void Main()
-        {
-            using var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
-            Console.SetOut(sw);
-            Solve();
-            Console.Out.Flush();
-        }
+namespace Tasks;
 
-        public static void Solve()
-        {
-        }
+public class CP.Solver
+{
+    public static void Main()
+    {
+        using var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
+        Console.SetOut(sw);
+        Solve();
+        Console.Out.Flush();
+    }
+
+    public static void Solve()
+    {
     }
 }
+
