@@ -15,12 +15,11 @@ jobs:
     
     steps:    
     - uses: actions/checkout@v2
-    - name: Setup .NET 6.0
+    - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: |
-          3.1
-          6.0
+          7.0
 
     - name: Create Release
       run: Import-Module ./scripts/release.ps1 && Publish-Release -Tag $env:GITHUB_REF.Split("/")[-1]
