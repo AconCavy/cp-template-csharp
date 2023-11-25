@@ -28,12 +28,13 @@ dotnet new cpproj -n Sample
 ```
 
 And, you can specify a target framework using a `-f|--framework` option.
-The default target framework is a `net7`.
+The default target framework is a `net7.0`.
 
 The target frameworks can be specified
 
-- net7
-- net6
+- net8.0
+- net7.0
+- net6.0
 - netcoreapp3.1
 
 ```sh
